@@ -23,6 +23,9 @@
 - [x] Dart obfuscation enabled for release commands.
 - [x] Portrait orientation enforced in Flutter.
 - [x] No release INTERNET permission declared in main manifest.
+- [x] Release APK installs on emulator.
+- [x] Release app launches with package `com.flapyquest.game`.
+- [x] APK signature verified with `apksigner`.
 
 ## Versioning
 

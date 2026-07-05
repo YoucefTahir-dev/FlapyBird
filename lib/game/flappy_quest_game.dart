@@ -18,6 +18,7 @@ import 'components/bird.dart';
 import 'components/ground.dart';
 import 'components/pipe_pair.dart';
 import 'components/spark_particle.dart';
+import 'difficulty_config.dart';
 
 enum GamePhase { menu, playing, gameOver }
 
@@ -49,8 +50,9 @@ class FlappyQuestGame extends FlameGame
   GamePhase phase = GamePhase.menu;
 
   double obstacleTimer = 0;
-  double obstacleInterval = 1.55;
-  double worldSpeed = 185;
+  double obstacleInterval = GameDifficultyConfig.start.spawnInterval;
+  double worldSpeed = GameDifficultyConfig.start.speed;
+  DifficultySettings currentDifficulty = GameDifficultyConfig.start;
 
   int get score => scoreNotifier.value;
   int get highScore => highScoreNotifier.value;
@@ -81,8 +83,9 @@ class FlappyQuestGame extends FlameGame
     }
 
     obstacleTimer += dt;
-    worldSpeed = min(330, 185 + score * 5.5);
-    obstacleInterval = max(1.0, 1.55 - score * 0.012);
+    currentDifficulty = GameDifficultyConfig.forScore(score);
+    worldSpeed = currentDifficulty.speed;
+    obstacleInterval = currentDifficulty.spawnInterval;
 
     if (obstacleTimer >= obstacleInterval) {
       obstacleTimer = 0;
@@ -113,8 +116,10 @@ class FlappyQuestGame extends FlameGame
     removeAll(children.whereType<SparkParticle>().toList());
 
     scoreNotifier.value = 0;
+    currentDifficulty = GameDifficultyConfig.forScore(0);
+    obstacleInterval = currentDifficulty.spawnInterval;
     obstacleTimer = obstacleInterval;
-    worldSpeed = 185;
+    worldSpeed = currentDifficulty.speed;
     phase = GamePhase.playing;
 
     bird.reset(
@@ -201,7 +206,7 @@ class FlappyQuestGame extends FlameGame
 
   PipePair _createPipePair() {
     final groundY = groundTop();
-    final gap = max(145.0, 185 - score * 1.6);
+    final gap = currentDifficulty.pipeGap;
     final minCenter = 118.0 + gap / 2;
     final maxCenter = groundY - 92.0 - gap / 2;
     final centerY =

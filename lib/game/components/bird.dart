@@ -27,7 +27,6 @@ class Bird extends PositionComponent
   double velocityY = 0;
   double wingTime = 0;
 
-  static const double gravity = 930;
   static const double flapVelocity = -340;
 
   @override
@@ -45,7 +44,7 @@ class Bird extends PositionComponent
     wingTime += dt * 12;
 
     if (game.phase == GamePhase.playing) {
-      velocityY += gravity * dt;
+      velocityY += game.currentDifficulty.gravity * dt;
       position.y += velocityY * dt;
       angle = (velocityY / 620).clamp(-0.55, 0.85);
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../game/flag_painter.dart';
 import '../game/flappy_quest_game.dart';
 import '../models/country.dart';
 
@@ -22,8 +21,7 @@ class _CountrySelectionOverlayState extends State<CountrySelectionOverlay> {
   @override
   Widget build(BuildContext context) {
     final filteredCountries = countries.where((country) {
-      final text = '${country.name} ${country.code}'.toLowerCase();
-      return text.contains(query.trim().toLowerCase());
+      return country.searchableText.contains(query.trim().toLowerCase());
     }).toList();
 
     return SafeArea(
@@ -107,10 +105,7 @@ class _CountryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: onTap,
-      leading: CustomPaint(
-        size: const Size(46, 30),
-        painter: _FlagPreviewPainter(country),
-      ),
+      leading: Text(country.flagEmoji, style: const TextStyle(fontSize: 28)),
       title: Text(
         country.name,
         style: const TextStyle(
@@ -120,28 +115,12 @@ class _CountryTile extends StatelessWidget {
         ),
       ),
       subtitle: Text(
-        country.emoji,
+        country.isoCode,
         style: const TextStyle(color: Colors.white70),
       ),
       trailing: selected
           ? const Icon(Icons.check_circle, color: Color(0xFF06D6A0))
           : const Icon(Icons.chevron_right, color: Colors.white70),
     );
-  }
-}
-
-class _FlagPreviewPainter extends CustomPainter {
-  const _FlagPreviewPainter(this.country);
-
-  final Country country;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    FlagPainter.paint(canvas, Offset.zero & size, country);
-  }
-
-  @override
-  bool shouldRepaint(covariant _FlagPreviewPainter oldDelegate) {
-    return oldDelegate.country.code != country.code;
   }
 }

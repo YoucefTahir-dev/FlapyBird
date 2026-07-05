@@ -4,7 +4,7 @@ Date: 2026-07-05
 
 ## Summary
 
-Status: Passed with one critical issue fixed.
+Status: Passed with production improvements validated.
 
 Critical fix applied:
 
@@ -26,14 +26,28 @@ Critical fix applied:
 | Release AAB build | Passed | none | `build/app/outputs/bundle/release/app-release.aab`. |
 | APK signature verify | Passed | none | Verified with Android SDK `apksigner`. |
 
+Latest verification after country and difficulty improvements:
+
+- `flutter clean`: Passed
+- `flutter pub get`: Passed
+- `flutter analyze`: Passed with no issues
+- `flutter test --coverage`: Passed, 10/10 tests
+- Coverage: 65/76 lines, 85.53%
+- Release APK install on emulator: Passed
+- Release app launch: Passed
+- Runtime memory: about 50 MB PSS on emulator
+
 ## Functional Coverage
 
 | Area | Result | Method |
 | --- | --- | --- |
 | Country selection data | Passed | Unit test verifies required countries. |
+| Full country list | Passed | Package-backed list contains at least 240 ISO countries/regions. |
+| Country sorting | Passed | Unit test verifies alphabetical order. |
 | Country fallback | Passed | Unit test verifies unknown code fallback. |
 | SharedPreferences country storage | Passed | Unit test verifies selected country persistence. |
 | High score protection | Passed | Unit test verifies tampered score is rejected. |
+| Difficulty progression | Passed | Unit tests verify monotonic and smooth score transitions. |
 | Routes / navigation | Passed | Static review: Flame overlays, no undefined Navigator routes. |
 | Audio assets | Passed | File and pubspec verification. |
 | Android package launch path | Fixed and passed | `MainActivity` package corrected. |
@@ -42,6 +56,7 @@ Critical fix applied:
 
 ## Remaining Non-Critical Risks
 
-- No automated emulator gameplay test yet. Add integration tests later for tap/flap, collision, restart, and overlays.
+- No automated end-to-end gameplay input test yet. Add integration tests later for tap/flap, collision, restart, and overlays.
 - App icon is still the default Flutter launcher icon. This is acceptable for a technical build but should be replaced before public launch.
 - Play Store screenshots and feature graphic are not generated inside the repo.
+- Flutter 3.44.4 prints a non-blocking DWARF warning for native ELF debug information. The suggested `--strip` flag is not available in this Flutter version.

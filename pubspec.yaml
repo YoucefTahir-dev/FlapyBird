@@ -38,6 +38,7 @@ dependencies:
   flame: ^1.37.0
   flame_audio: ^2.12.1
   shared_preferences: ^2.5.5
+  country_picker: ^2.0.28
 
 dev_dependencies:
   flutter_test:

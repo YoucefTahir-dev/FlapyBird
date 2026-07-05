@@ -6,7 +6,7 @@ Initial release of Flapy Quest.
 
 - Tap-to-fly arcade gameplay.
 - Country selection before playing.
-- Selected country flag rendered directly on the bird.
+- Full country selection with flag rendering directly on the bird.
 - Progressive obstacle difficulty.
 - Local score and high score.
 - Game Over and Restart flow.
