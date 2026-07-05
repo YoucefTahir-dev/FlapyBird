@@ -43,9 +43,9 @@ For every update:
 
 - [x] Replace default launcher icon with final brand icon.
 - [x] Create Play Store icon: 512x512 PNG with alpha, max 1024 KB.
-- [ ] Create feature graphic: 1024x500 JPG or 24-bit PNG without alpha.
-- [ ] Prepare at least 2 phone screenshots.
-- [ ] Recommended for games: at least 3 portrait screenshots at 1080x1920 or 3 landscape screenshots at 1920x1080.
+- [x] Create feature graphic: 1024x500 JPG or 24-bit PNG without alpha.
+- [x] Prepare at least 2 phone screenshots.
+- [x] Recommended for games: at least 3 portrait screenshots at 1080x1920 or 3 landscape screenshots at 1920x1080.
 - [ ] Prepare optional preview video as public or unlisted YouTube video.
 
 ## Privacy And Safety
@@ -57,6 +57,8 @@ For every update:
 - [x] No analytics SDK.
 - [x] Local preferences only: country, skin, night mode, high score.
 - [x] Draft privacy policy created in `docs/PRIVACY_POLICY.md`.
+- [x] Draft Data Safety answers created in `docs/DATA_SAFETY.md`.
+- [x] Draft Terms of Use created in `docs/TERMS_OF_USE.md`.
 - [ ] Publish privacy policy at a public URL before Play Store review.
 - [ ] Complete Data Safety form in Play Console.
 

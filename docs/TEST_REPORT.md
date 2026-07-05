@@ -18,8 +18,8 @@ Critical fix applied:
 | `flutter pub get` | Passed | none | Direct dependencies up to date. |
 | `flutter pub outdated` | Passed | low | Only transitive packages have newer incompatible versions. |
 | `flutter analyze` | Passed | none | No analyzer issues. |
-| `flutter test` | Passed | none | 5 tests passed. |
-| `flutter test --coverage` | Passed | low | Coverage: 25/31 lines, 80.65% for tested units. |
+| `flutter test` | Passed | none | 10 tests passed. |
+| `flutter test --coverage` | Passed | low | Coverage: 65/76 lines, 85.53% for tested units. |
 | Asset check | Passed | none | Audio assets exist and are declared in `pubspec.yaml`. |
 | Debug APK build | Passed | none | `build/app/outputs/flutter-apk/app-debug.apk`. |
 | Release APK build | Passed | none | `build/app/outputs/flutter-apk/app-release.apk`. |
@@ -57,6 +57,5 @@ Latest verification after country and difficulty improvements:
 ## Remaining Non-Critical Risks
 
 - No automated end-to-end gameplay input test yet. Add integration tests later for tap/flap, collision, restart, and overlays.
-- App icon is still the default Flutter launcher icon. This is acceptable for a technical build but should be replaced before public launch.
-- Play Store screenshots and feature graphic are not generated inside the repo.
+- Play Store screenshots were generated from branded game artwork. Replace them with live emulator screenshots before final marketing submission if you want 100% runtime captures.
 - Flutter 3.44.4 prints a non-blocking DWARF warning for native ELF debug information. The suggested `--strip` flag is not available in this Flutter version.
