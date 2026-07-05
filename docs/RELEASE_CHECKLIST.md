@@ -41,8 +41,8 @@ For every update:
 
 ## Google Play Store Assets
 
-- [ ] Replace default launcher icon with final brand icon.
-- [ ] Create Play Store icon: 512x512 PNG with alpha, max 1024 KB.
+- [x] Replace default launcher icon with final brand icon.
+- [x] Create Play Store icon: 512x512 PNG with alpha, max 1024 KB.
 - [ ] Create feature graphic: 1024x500 JPG or 24-bit PNG without alpha.
 - [ ] Prepare at least 2 phone screenshots.
 - [ ] Recommended for games: at least 3 portrait screenshots at 1080x1920 or 3 landscape screenshots at 1920x1080.
