@@ -1,4 +1,4 @@
-package com.example.flapy_bird
+package com.flapyquest.game
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -20,3 +20,9 @@ This project follows Semantic Versioning: `MAJOR.MINOR.PATCH`.
 - Visible flag motif rendered directly on the bird.
 - GitHub Actions Android CI workflow.
 - Professional repository documentation and Git workflow.
+- Production test report, release checklist, Google Play guide, and privacy policy draft.
+
+### Fixed
+
+- Moved Android `MainActivity` into the production package `com.flapyquest.game`.
+- Removed debug signing fallback from release builds.

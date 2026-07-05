@@ -53,10 +53,10 @@ app.*.map.json
 /android/key.properties
 *.jks
 *.keystore
+*.p12
 
 # Local environment and secrets
 .env
 .env.*
 secrets/
 *.pem
-*.p12
